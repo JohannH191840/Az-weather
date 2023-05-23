@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #F1F2F9;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        .title {
+          text-align: center;
+          background-color: #29335C;
+          color: #FFFFFF;
+          padding: 20px;
+        }
+    
+        .weatherBox {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 500px;
+          text-align: center;
+        }
+    
+        .weatherBox h2 {
+          margin-bottom: 20px;
+        }
+    
+        .weatherBox #weatherReport {
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+    
+        .weatherBox button {
+          font-size: 20px;
+          padding: 10px 20px;
+          background-color: #FFFFFF;
+          color: #29335C;
+          border: none;
+          cursor: pointer;
+        }
+    
+        .weatherBox #temperature {
+          margin-top: 20px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="title">
+        <h1>Arizona Weather Info</h1>
+      </div>
+    
+      <div class="weatherBox">
+        <div style="background-color: #29335C; color: #FFFFFF; padding: 20px; border-radius: 10px;">
+          <h2>Glendale Weather</h2>
+          <div id="weatherReport"></div>
+          <button id="generate">Random Info</button>
+          <div id="temperature">20°C</div>
+        </div>
+      </div>
+    
+      <script>
+        document.getElementById('generate').addEventListener('click', function() {
+          let weatherConditions = ["Sunny", "Cloudy", "Rainy", "Stormy", "Snowy", "Windy", "Foggy", "Hail", "Thunderstorms", "Mild", "Cold", "Hot"];
+          let randomIndex = Math.floor(Math.random() * weatherConditions.length);
+          let sliceSize = 1;
+          let randomWeatherConditions = weatherConditions.slice(randomIndex, randomIndex + sliceSize);
+    
+          document.getElementById('weatherReport').textContent = randomWeatherConditions.join(', ');
+        });
+      </script>
+</body>
+</html>
